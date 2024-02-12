@@ -19,8 +19,9 @@
 #include "ft_strlen.c"
 #include "ft_putchar.c"
 #define HEX_LETTERS "0123456789abcdef"
+#define HEX_UP_LETTERS "0123456789ABCDEF"
 
-static int hex_dimension(int nbr)
+static int hex_dimension(unsigned long long int nbr)
 {
 	int magnitude = 0;
 	while (nbr > 0)
@@ -86,6 +87,58 @@ int print_hex(unsigned int nbr)
 	free(container);
 	return (j);
 }
+int	print_uint(unsigned int n)
+{
+	int	count;
+
+	count = 0;
+	if (n < 10)
+		count += ft_putchar(n + 48);
+	else
+	{
+		count += print_uint(n / 10);
+		count += print_uint(n % 10);
+	}
+	return (count);
+}
+
+int print_ptr(unsigned long long ptr)
+{
+	int	count;
+
+	count = 0;
+	while (count < hex_dimension(ptr))
+		count++;	
+	write(1,"0x",2);	
+	print_hex(ptr);
+	
+	return (count - 2);
+}
+
+int print_up_hex(unsigned int nbr) 
+{
+	int remainder;
+	int *container;
+	int i;
+	int j;
+
+	j = 0;
+	i = 0;
+	container = (int *)malloc(hex_dimension(nbr) * sizeof(int));
+	while (j < hex_dimension(nbr))
+		j++;	
+	while (nbr > 0) 
+	{
+		remainder = nbr % 16;
+		container[i] = remainder;
+		nbr = nbr / 16;
+		i++;
+	}
+	while(--i >= 0) 
+		ft_putchar(HEX_UP_LETTERS[container[i]]);
+	free(container);
+	return (j);
+} 
 
 int print_format(char type, va_list *ap)
 {
@@ -93,17 +146,21 @@ int print_format(char type, va_list *ap)
 
 	count = 0;
 	if (type == 'c')
-		count += print_char(va_arg(*ap, int));		//int al posto di char per la type promotion automatica
+		count += print_char(va_arg(*ap, int));		
 	else if (type == 's')
 		count = count + print_str(va_arg(*ap, char *));
-	else if (type == 'd')
+	else if (type == 'd' || type == 'i')
 		count = count + print_decimal(va_arg(*ap, int));
 	else if (type == 'x')
 		count = count + print_hex(va_arg(*ap, unsigned int));
-	/*else if (type == 'i')
-		count = count + print_int(va_arg(*ap, int));
 	else if (type == 'u')
-		count = count + print_uint(va_arg(*ap, unsigned int));*/
+		count = count + print_uint(va_arg(*ap, unsigned int));
+	else if (type == 'p')
+		count = count + print_ptr(va_arg(*ap, unsigned long long));
+	else if (type == '%')
+		count += print_char('%');
+	else if (type == 'X')
+		count += print_up_hex(va_arg(*ap, unsigned int));
 	else 
 		count += write(1, &type, 1);
 	return (count);	
@@ -139,9 +196,9 @@ int main(void)
 	int intero;
 	char *stringa;
 
-	intero = 2;
-	stringa = "aaa";
-	count = ft_printf("%x\n", 160);
+	intero = 6;
+	stringa = "aa";
+	count = ft_printf("%% ciao %X\n", 255);
 	printf("%d", count);	
 	
 	return 0;
