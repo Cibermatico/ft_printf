@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
+
+/*#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -19,9 +21,9 @@
 #include "ft_strlen.c"
 #include "ft_putchar.c"
 #define HEX_LETTERS "0123456789abcdef"
-#define HEX_UP_LETTERS "0123456789ABCDEF"
+#define HEX_UP_LETTERS "0123456789ABCDEF"*/
 
-static int hex_dimension(unsigned long long int nbr)
+/*static int hex_dimension(unsigned long long int nbr)
 {
 	int magnitude = 0;
 	while (nbr > 0)
@@ -63,7 +65,7 @@ int print_decimal(int nbr)
 	return (ft_strlen(res));
 }
 
-int print_hex(unsigned int nbr) 
+int print_hex(unsigned int nbr)
 {
 	int remainder;
 	int *container;
@@ -138,7 +140,7 @@ int print_up_hex(unsigned int nbr)
 		ft_putchar(HEX_UP_LETTERS[container[i]]);
 	free(container);
 	return (j);
-} 
+}*/
 
 int print_format(char type, va_list *ap)
 {
@@ -190,7 +192,7 @@ int ft_printf(const char *format, ...)
 	return (count);	
 }
 
-int main(void)
+/*int main(void)
 {
 	int count;
 	int intero;
@@ -202,4 +204,4 @@ int main(void)
 	printf("%d", count);	
 	
 	return 0;
-}
+}*/
