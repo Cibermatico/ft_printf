@@ -6,7 +6,7 @@
 /*   By: lsquarci <lsquarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:40:18 by lsquarci          #+#    #+#             */
-/*   Updated: 2024/02/12 18:59:12 by lsquarci         ###   ########.fr       */
+/*   Updated: 2024/02/13 09:21:41 by lsquarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ int print_hex(unsigned int nbr)
 
 	j = 0;
 	i = 0;
+	if (nbr == 0) 
+	{
+		ft_putchar('0');
+		return 1;
+	}
 	container = (int *)malloc(hex_dimension(nbr) * sizeof(int));
 	while (j < hex_dimension(nbr))
 		j++;	
@@ -55,6 +60,11 @@ int print_up_hex(unsigned int nbr)
 
 	j = 0;
 	i = 0;
+	if (nbr == 0) 
+	{
+		ft_putchar('0');
+		return 1;
+	}
 	container = (int *)malloc(hex_dimension(nbr) * sizeof(int));
 	while (j < hex_dimension(nbr))
 		j++;	

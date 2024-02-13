@@ -6,7 +6,7 @@
 /*   By: lsquarci <lsquarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:41:38 by lsquarci          #+#    #+#             */
-/*   Updated: 2024/02/12 18:59:05 by lsquarci         ###   ########.fr       */
+/*   Updated: 2024/02/13 08:58:54 by lsquarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int print_decimal(int nbr)
 
 	res = ft_itoa(nbr);
 	ft_putstr(res);
+	free(res);
 	return (ft_strlen(res));
 }
 int	print_uint(unsigned int n)

@@ -6,7 +6,7 @@
 /*   By: lsquarci <lsquarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:43:15 by lsquarci          #+#    #+#             */
-/*   Updated: 2024/02/12 18:58:59 by lsquarci         ###   ########.fr       */
+/*   Updated: 2024/02/13 09:06:08 by lsquarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int print_str(char *str)
 
 	i = 0;
 	count = 0;
+	if (!str)
+		str = "(null)";
 	while (str[i] != '\0')
 	{
 		print_char((int)str[i]);
