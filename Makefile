@@ -5,6 +5,7 @@ SRC	=	ft_printf.c			\
 		text_handle.c		\
 		decimal_handle.c	\
 		hex_handle.c		\
+		ft_printf_helper2.c	\
 
 OBJS = $(SRC:.c=.o)
 

@@ -6,22 +6,23 @@
 /*   By: lsquarci <lsquarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:41:38 by lsquarci          #+#    #+#             */
-/*   Updated: 2024/02/13 08:58:54 by lsquarci         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:12:14 by lsquarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_decimal(int nbr)
+int	print_decimal(int nbr)
 {
-	char *res;
-	res = 0;
+	char	*res;
 
+	res = 0;
 	res = ft_itoa(nbr);
 	ft_putstr(res);
 	free(res);
 	return (ft_strlen(res));
 }
+
 int	print_uint(unsigned int n)
 {
 	int	count;
