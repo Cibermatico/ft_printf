@@ -6,7 +6,7 @@
 /*   By: lsquarci <lsquarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:41:38 by lsquarci          #+#    #+#             */
-/*   Updated: 2024/02/13 12:12:14 by lsquarci         ###   ########.fr       */
+/*   Updated: 2024/02/15 09:47:01 by lsquarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 int	print_decimal(int nbr)
 {
 	char	*res;
+	int		len;
 
-	res = 0;
+	len = 0;
 	res = ft_itoa(nbr);
-	ft_putstr(res);
-	free(res);
-	return (ft_strlen(res));
+	len = print_str(res);
+	if (res)
+		free(res);
+	return (len);
 }
 
 int	print_uint(unsigned int n)

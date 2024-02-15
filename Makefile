@@ -9,7 +9,7 @@ SRC	=	ft_printf.c			\
 
 OBJS = $(SRC:.c=.o)
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 AR = ar crs
@@ -26,5 +26,8 @@ fclean:	clean
 	$(RM) $(NAME)		
 
 re:	fclean all
+
+ft_printf: $(OBJS) 
+	$(CC) $(CFLAGS) -o ft_printf $(OBJS)
 
 .PHONY:	all clean fclean re
